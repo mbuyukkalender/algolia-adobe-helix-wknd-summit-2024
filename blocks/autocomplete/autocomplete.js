@@ -222,7 +222,7 @@ export default function decorate(block) {
             html`
               <div class="aa-PanelLayout aa-Panel--scrollable">
                 <div style="display:flex; flex-direction: row; justify-content: space-evenly; align-items: stretch">
-                  <div style="flex-shrink: 0; padding-top: 2rem; padding-bottom: 2rem;">
+                  <div style="flex-shrink: 0; padding: 1rem; width: 20%; ">
                     <div class="aa-SourceHeader">
                         <h2 style="text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem; font-family: monospace; font-size: 16px;">
                           Recent Searches
@@ -233,7 +233,7 @@ export default function decorate(block) {
                       </div>
                   </div>
 
-                  <div style="padding: 2rem; width: 100%;">
+                  <div style="padding: 1rem; width: 100%; width: 50%;">
                     <div class="aa-SourceHeader">
                       <h2 style="text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem; font-family: monospace; font-size: 16px;">
                         Products
@@ -244,7 +244,7 @@ export default function decorate(block) {
                     </div>
                   </div>
 
-                  <div style="padding: 2rem;">
+                  <div style="padding: 1rem; width: 30%;">
                     <div class="aa-SourceHeader">
                       <h2 style="text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem; font-family: monospace; font-size: 16px;">
                         Articles
