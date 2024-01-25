@@ -83,7 +83,7 @@ export default function decorate(block) {
                             })}
                           </h3>
                           <p style="font-size: .75rem; line-height: 1rem; font-weight: 700; color: #003DFF; ">
-                            <span>$69.00</span>
+                            <span>${item.price.USD.default_formated}</span>
                           </p>
                         </div>
 
