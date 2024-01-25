@@ -191,7 +191,7 @@ export default function decorate(block) {
                           <img style="max-height: 6rem; width: 100%; object-fit: cover;" src="${item.meta.filereference}" />
                         </div>
                         <div syle="position: relative; align-self: center; ">
-                          <h3 style="margin-bottom: 0; font-size: .75rem; font-weight: 600; text-transform: capitalize; line-height: 1.375;">
+                          <h3 style="margin-bottom: 0; font-size: .75rem; font-weight: 600; text-transform: capitalize; line-height: 1.375; font-family: system-ui; ">
                             ${components.Highlight({
                               hit: item,
                               attribute: 'title',
@@ -215,6 +215,14 @@ export default function decorate(block) {
               <div class="aa-PanelLayout aa-Panel--scrollable">
                 <div style="display:flex; flex-direction: row; justify-content: space-evenly; align-items: stretch">
                   <div style="flex-shrink: 0; padding-top: 2rem; padding-bottom: 2rem;">
+                    <div class="aa-SourceHeader">
+                        <h2 style="text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem; font-family: monospace; font-size: 16px;">
+                          Recent Searches
+                        </h2>
+                      </div>
+                      <div>
+                        ${articles}
+                      </div>
                   </div>
 
                   <div style="padding: 2rem; width: 100%;">
@@ -231,7 +239,7 @@ export default function decorate(block) {
                   <div style="padding: 2rem;">
                     <div class="aa-SourceHeader">
                       <h2 style="text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem; font-family: monospace; font-size: 16px;">
-                        Products
+                        Articles
                       </h2>
                     </div>
                     <div>
