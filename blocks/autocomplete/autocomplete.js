@@ -1,5 +1,6 @@
 import '../../scripts/lib-algoliasearch.js';
 import '../../scripts/lib-autocomplete.js';
+import './productItem.js';
 
 export default function decorate(block) {
   const { algoliasearch } = window;
