@@ -6,10 +6,22 @@ export default function decorate(block) {
   const { algoliasearch } = window;
   const { autocomplete, getAlgoliaResults } = window['@algolia/autocomplete-js'];
   const { createLocalStorageRecentSearchesPlugin } = window['@algolia/autocomplete-plugin-recent-searches'];
+  const { createQuerySuggestionsPlugin } = window['@algolia/autocomplete-plugin-query-suggestions'];
 
   const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
     key: 'RECENT_SEARCH',
     limit: 5,
+  });
+
+  const querySuggestionsPlugin = createQuerySuggestionsPlugin({
+    searchClient,
+    indexName: 'magento2_master_default_products_query_suggestions',
+    getSearchParams() {
+      return {
+        ...recentSearchesPlugin.data.getAlgoliaSearchParams(),
+        hitsPerPage: 7,
+      };
+    },
   });
 
   fetch('/config/algolia.json')
@@ -24,7 +36,7 @@ export default function decorate(block) {
       autocomplete({
         container: block,
         placeholder: config.get('placeholder'),
-        plugins: [recentSearchesPlugin],
+        plugins: [recentSearchesPlugin, querySuggestionsPlugin],
         openOnFocus: true,
 
         onSubmit({ state }) {
@@ -216,7 +228,7 @@ export default function decorate(block) {
         },
 
         render({ elements, render, html }, root) {
-          const { recentSearchesPlugin, products, articles } = elements;
+          const { recentSearchesPlugin, querySuggestionsPlugin, products, articles } = elements;
 
           render(
             html`
@@ -224,13 +236,21 @@ export default function decorate(block) {
                 <div style="display:flex; flex-direction: row; justify-content: space-evenly; align-items: stretch">
                   <div style="flex-shrink: 0; padding: 1rem; width: 20%; ">
                     <div class="aa-SourceHeader">
-                        <h2 style="text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem; font-family: monospace; font-size: 16px;">
-                          Recent Searches
-                        </h2>
-                      </div>
-                      <div>
-                        ${recentSearchesPlugin}
-                      </div>
+                      <h2 style="text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem; font-family: monospace; font-size: 16px;">
+                        Recent Searches
+                      </h2>
+                    </div>
+                    <div>
+                      ${recentSearchesPlugin}
+                    </div>
+                    <div class="aa-SourceHeader">
+                      <h2 style="text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem; font-family: monospace; font-size: 16px;">
+                        Popular Searches
+                      </h2>
+                    </div>
+                    <div>
+                      ${querySuggestionsPlugin}
+                    </div>
                   </div>
 
                   <div style="padding: 1rem; width: 100%; width: 50%;">
