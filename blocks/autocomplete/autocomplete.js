@@ -53,10 +53,6 @@ export default function decorate(block) {
                 });
               },
               templates: {
-                header() {
-                  return 'Products';
-                },
-
                 item({ item, components, html }) {
                   return html`
                     <div class="aa-ItemWrapper">
@@ -250,7 +246,11 @@ export default function decorate(block) {
                   </div>
 
                   <div style="padding: 2rem;">
-                    <div class="aa-SourceHeader"><h2 class="mb-2 font-bold uppercase leading-none text-colorBp-800">Products</h2></div>
+                    <div class="aa-SourceHeader">
+                      <h2 style="--tw-text-opacity: 1; color: rgb(39 39 42 / var(--tw-text-opacity)); text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem;">
+                        Products
+                      </h2>
+                    </div>
                     <div>
                       ${products}
                     </div>
