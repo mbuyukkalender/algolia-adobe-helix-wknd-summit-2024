@@ -1,9 +1,15 @@
 import '../../scripts/lib-algoliasearch.js';
 import '../../scripts/lib-autocomplete.js';
+import '../../scripts/lib-autocomplete-plugin-recent-searches.js';
 
 export default function decorate(block) {
   const { algoliasearch } = window;
   const { autocomplete, getAlgoliaResults } = window['@algolia/autocomplete-js'];
+
+  const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
+    key: 'RECENT_SEARCH',
+    limit: 5,
+  });
 
   fetch('/config/algolia.json')
     .then(async (response) => {
@@ -17,6 +23,7 @@ export default function decorate(block) {
       autocomplete({
         container: block,
         placeholder: config.get('placeholder'),
+        plugins: [recentSearchesPlugin],
         openOnFocus: true,
 
         onSubmit({ state }) {
@@ -208,7 +215,7 @@ export default function decorate(block) {
         },
 
         render({ elements, render, html }, root) {
-          const { products, articles } = elements;
+          const { recentSearchesPlugin, products, articles } = elements;
 
           render(
             html`
@@ -221,7 +228,7 @@ export default function decorate(block) {
                         </h2>
                       </div>
                       <div>
-                        ${articles}
+                        ${recentSearchesPlugin}
                       </div>
                   </div>
 
