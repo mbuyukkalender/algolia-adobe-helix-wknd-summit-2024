@@ -57,11 +57,24 @@ export default function decorate(block) {
                   return html`
                     <div style="cursor: pointer; padding-top: 0.75rem; padding-bottom: 0.75rem;">
                       <div style="display: flex; align-items: center;">
-                        <div style="position: relative; margin-right: 1rem; width: 5rem; flex-shrink: 0; align-self: center;">
-                          <img style="aspect-ratio: 1 / 1; width: 100%; object-fit: contain;" src="${item.image_url}" alt="${item.name}">
+                        
+                        <div style="position: relative; align-self: center;">
+                          <p style="margin-bottom: 0.25rem; font-size: .75rem; font-weight: 700; text-transform: uppercase; line-height: 1;">
+                            ${components.Highlight({
+                              hit: item,
+                              attribute: 'name',
+                            })}
+                          </p>
+                          <h3 style="margin-bottom: 0.5rem; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; font-size: .875rem; line-height: 1.375; ">
+                            ${components.Snippet({
+                              hit: item,
+                              attribute: 'short_description',
+                            })}
+                          </h3>
+                          <p style="font-size: .75rem; line-height: 1rem; font-weight: 700; color: #003DFF; ">
+                            <span>$69.00</span>
+                          </p>
                         </div>
-                        
-                        
 
                       </div>
                     </div>
