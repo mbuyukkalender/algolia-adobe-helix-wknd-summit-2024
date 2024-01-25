@@ -185,51 +185,22 @@ export default function decorate(block) {
               templates: {
                 item({ item, components, html }) {
                   return html`
-                <div class="aa-ItemWrapper">
-              <div class="aa-ItemContent">
-                <div class="aa-ItemIcon aa-ItemIcon--alignTop">
-                  <img
-                    src="${item.meta.filereference}"
-                    alt="${item.title}"
-                    width="40"
-                    height="40"
-                  />
-                </div>
-                <div class="aa-ItemContentBody">
-                  <div class="aa-ItemContentTitle">
-                    ${components.Highlight({
-    hit: item,
-    attribute: 'title',
-  })}
-                  </div>
-                  <div class="aa-ItemContentDescription">
-                    ${components.Snippet({
-    hit: item,
-    attribute: 'jcr_description',
-  })}
-                  </div>
-                </div>
-                <div class="aa-ItemActions">
-                  <button
-                    class="aa-ItemActionButton aa-DesktopOnly aa-ActiveOnly"
-                    type="button"
-                    title="Select"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="20"
-                      height="20"
-                      fill="currentColor"
-                    >
-                      <path
-                        d="M18.984 6.984h2.016v6h-15.188l3.609 3.609-1.406 1.406-6-6 6-6 1.406 1.406-3.609 3.609h13.172v-4.031z"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-              `;
+                    <a href="${item.path}" target="_blank">
+                      <div style="width: 100%; max-width: 36rem; padding-top: 0.75rem; padding-bottom: 0.75rem;" >
+                        <div style="position: relative; margin-bottom: 0.5rem; flex: none; align-self: center;">
+                          <img style="max-height: 6rem; width: 100%; object-fit: cover;" src="${item.meta.filereference}" />
+                        </div>
+                        <div syle="position: relative; align-self: center; ">
+                          <h3 style="margin-bottom: 0; font-size: .75rem; font-weight: 600; text-transform: capitalize; line-height: 1.375;">
+                            ${components.Highlight({
+                              hit: item,
+                              attribute: 'title',
+                            })}
+                          </h3>
+                        </div>
+                      </div>
+                    </a>
+                  `;
                 },
               },
             },
@@ -237,7 +208,7 @@ export default function decorate(block) {
         },
 
         render({ elements, render, html }, root) {
-          const { products } = elements;
+          const { products, articles } = elements;
 
           render(
             html`
@@ -258,6 +229,14 @@ export default function decorate(block) {
                   </div>
 
                   <div style="padding: 2rem;">
+                    <div class="aa-SourceHeader">
+                      <h2 style="text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem; font-family: monospace; font-size: 16px;">
+                        Products
+                      </h2>
+                    </div>
+                    <div>
+                      ${articles}
+                    </div>
                   </div>
                 </div>  
               </div>
