@@ -213,8 +213,8 @@ export default function decorate(block) {
                         <div style="position: relative; margin-bottom: 0.5rem; flex: none; align-self: center;">
                           <img style="max-height: 6rem; width: 100%; object-fit: cover;" src="${item.prod_img}" />
                         </div>
-                        <div syle="position: relative; align-self: center; ">
-                          <h3 style="margin-bottom: 0; font-size: .75rem; font-weight: 600; text-transform: capitalize; line-height: 1.375; font-family: system-ui; ">
+                        <div syle="position: relative; align-self: center; ">                          
+                          <h3 style="margin-bottom: 0; font-size: .75rem; font-weight: 700; text-transform: uppercase; line-height: 1.375; font-family: system-ui; ">
                             ${components.Highlight({
                               hit: item,
                               attribute: 'title',
