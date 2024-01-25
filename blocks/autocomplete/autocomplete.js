@@ -1,10 +1,11 @@
 import '../../scripts/lib-algoliasearch.js';
 import '../../scripts/lib-autocomplete.js';
-import {createLocalStorageRecentSearchesPlugin} from '../../scripts/lib-autocomplete-plugin-recent-searches.js';
+import '../../scripts/lib-autocomplete-plugin-recent-searches.js';
 
 export default function decorate(block) {
   const { algoliasearch } = window;
   const { autocomplete, getAlgoliaResults } = window['@algolia/autocomplete-js'];
+  const { createLocalStorageRecentSearchesPlugin } = window['@algolia/autocomplete-plugin-recent-searches'];
 
   const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
     key: 'RECENT_SEARCH',
