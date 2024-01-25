@@ -1,6 +1,7 @@
 import '../../scripts/lib-algoliasearch.js';
 import '../../scripts/lib-autocomplete.js';
 import '../../scripts/lib-autocomplete-plugin-recent-searches.js';
+import '../../scripts/lib-autocomplete-plugin-query-suggestions.js';
 
 export default function decorate(block) {
   const { algoliasearch } = window;
