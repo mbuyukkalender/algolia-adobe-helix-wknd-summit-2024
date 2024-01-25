@@ -9,21 +9,7 @@ export default function decorate(block) {
   const { createLocalStorageRecentSearchesPlugin } = window['@algolia/autocomplete-plugin-recent-searches'];
   const { createQuerySuggestionsPlugin } = window['@algolia/autocomplete-plugin-query-suggestions'];
 
-  const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
-    key: 'RECENT_SEARCH',
-    limit: 5,
-  });
 
-  const querySuggestionsPlugin = createQuerySuggestionsPlugin({
-    searchClient,
-    indexName: 'magento2_master_default_products_query_suggestions',
-    getSearchParams() {
-      return {
-        ...recentSearchesPlugin.data.getAlgoliaSearchParams(),
-        hitsPerPage: 7,
-      };
-    },
-  });
 
   fetch('/config/algolia.json')
     .then(async (response) => {
@@ -33,6 +19,22 @@ export default function decorate(block) {
         config.get('appId'),
         config.get('searchApiKey'),
       );
+
+      const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
+        key: 'RECENT_SEARCH',
+        limit: 5,
+      });
+
+      const querySuggestionsPlugin = createQuerySuggestionsPlugin({
+        searchClient,
+        indexName: 'magento2_master_default_products_query_suggestions',
+        getSearchParams() {
+          return {
+            ...recentSearchesPlugin.data.getAlgoliaSearchParams(),
+            hitsPerPage: 7,
+          };
+        },
+      });
 
       autocomplete({
         container: block,
