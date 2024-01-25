@@ -208,10 +208,10 @@ export default function decorate(block) {
               templates: {
                 item({ item, components, html }) {
                   return html`
-                    <a href="${item.path}" target="_blank">
+                    <a href="${item.prod_url}" target="_blank">
                       <div style="width: 100%; max-width: 36rem; padding-top: 0.75rem; padding-bottom: 0.75rem;" >
                         <div style="position: relative; margin-bottom: 0.5rem; flex: none; align-self: center;">
-                          <img style="max-height: 6rem; width: 100%; object-fit: cover;" src="${item.meta.filereference}" />
+                          <img style="max-height: 6rem; width: 100%; object-fit: cover;" src="${item.prod_img}" />
                         </div>
                         <div syle="position: relative; align-self: center; ">
                           <h3 style="margin-bottom: 0; font-size: .75rem; font-weight: 600; text-transform: capitalize; line-height: 1.375; font-family: system-ui; ">
