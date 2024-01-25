@@ -270,7 +270,7 @@ export default function decorate(block) {
           ];
         },
 
-        render({ render, html }, root) {
+        render({ elements, render, html }, root) {
           const { products } = elements;
 
           render(
