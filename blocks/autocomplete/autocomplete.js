@@ -247,7 +247,7 @@ export default function decorate(block) {
 
                   <div style="padding: 2rem;">
                     <div class="aa-SourceHeader">
-                      <h2 style="--tw-text-opacity: 1; color: rgb(39 39 42 / var(--tw-text-opacity)); text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem;">
+                      <h2 style="text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem; font-family: monospace; font-size: 16px;">
                         Products
                       </h2>
                     </div>
