@@ -277,9 +277,11 @@ export default function decorate(block) {
             html`<div class="aa-PanelLayout aa-Panel--scrollable">
               <div class="aa-PanelSections">
                 <div class="aa-PanelSection--left">
+                  
+                </div>
+                <div class="aa-PanelSection--right">
                   ${products}
                 </div>
-                <div class="aa-PanelSection--right"></div>
               </div>
             </div>`,
             root
