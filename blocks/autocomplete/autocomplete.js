@@ -53,6 +53,10 @@ export default function decorate(block) {
                 });
               },
               templates: {
+                header() {
+                  return 'Products';
+                },
+
                 item({ item, components, html }) {
                   return html`
                     <div class="aa-ItemWrapper">
@@ -239,16 +243,21 @@ export default function decorate(block) {
           const { products } = elements;
 
           render(
-            html`<div class="aa-PanelLayout aa-Panel--scrollable">
-              <div class="aa-PanelSections">
-                <div class="aa-PanelSection--left">
-                  
-                </div>
-                <div class="aa-PanelSection--right">
-                  ${products}
-                </div>
+            html`
+              <div class="aa-PanelLayout aa-Panel--scrollable">
+                <div style="display:flex; flex-direction: row; justify-content: space-evenly; align-items: stretch">
+                  <div style="flex-shrink: 0; padding-top: 2rem; padding-bottom: 2rem;">
+                  </div>
+
+                  <div style="padding: 2rem;">
+                    ${products}
+                  </div>
+
+                  <div style="padding: 2rem;">
+                  </div>
+                </div>  
               </div>
-            </div>`,
+            `,
             root
           );
         },
