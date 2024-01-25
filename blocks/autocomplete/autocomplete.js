@@ -250,7 +250,10 @@ export default function decorate(block) {
                   </div>
 
                   <div style="padding: 2rem;">
-                    ${products}
+                    <div class="aa-SourceHeader"><h2 class="mb-2 font-bold uppercase leading-none text-colorBp-800">Products</h2></div>
+                    <div>
+                      ${products}
+                    </div>
                   </div>
 
                   <div style="padding: 2rem;">
