@@ -58,7 +58,7 @@ export default function decorate(block) {
                     <div style="cursor: pointer; padding-top: 0.75rem; padding-bottom: 0.75rem;">
                       <div style="display: flex; align-items: center;">
                         <div style="position: relative; margin-right: 1rem; width: 5rem; flex-shrink: 0; align-self: center;">
-                          <img  src="${item.image_url}" alt="${item.name}">
+                          <img style="aspect-ratio: 1 / 1; width: 100%; object-fit: contain;" src="${item.image_url}" >
                         </div>
                         
                         <div style="position: relative; align-self: center;">
