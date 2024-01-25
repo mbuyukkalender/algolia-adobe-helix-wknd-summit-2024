@@ -271,6 +271,8 @@ export default function decorate(block) {
         },
 
         render({ render, html }, root) {
+          const { products } = elements;
+
           render(
             html`<div class="aa-PanelLayout aa-Panel--scrollable">
               <div class="aa-PanelSections">
