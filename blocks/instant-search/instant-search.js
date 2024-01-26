@@ -86,10 +86,10 @@ export default function decorate(block) {
         }),
         
         panel({
-          templates: { header: 'brand' },
+          templates: { header: 'color' },
         })(refinementList)({
-          container: '#brand-list',
-          attribute: 'brand',
+          container: '#colorFacet',
+          attribute: 'color',
         }),
         
         pagination({
