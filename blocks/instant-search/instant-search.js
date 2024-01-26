@@ -4,7 +4,7 @@ import '../../scripts/lib-instant-search.js';
 export default function decorate(block) {
   const { algoliasearch, instantsearch } = window;
   const {
-    searchBox, hits, configure, panel, refinementList, pagination,
+    searchBox, hits, configure, panel, refinementList, pagination, rangeSlider
   } = instantsearch.widgets;
   const params = new URL(document.location).searchParams;
   const query = params.get('query');
