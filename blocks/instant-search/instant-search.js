@@ -10,17 +10,16 @@ export default function decorate(block) {
   const query = params.get('query');
 
   block.innerHTML = `
-    <div class="container">
-      <div class="search-panel">
-        <div class="search-panel__filters">
-          <div id="brand-list"></div>
-        </div>
+    <div id="searchbox" style="width:100%"></div>
+    <div style="display: flex;">    
+      <div style="flex-shrink: 0; padding: 1rem; width: 30%; ">
+        <div id="colorFacet"></div>
+        <div id="priceFacet"></div>
+      </div>
 
-        <div class="search-panel__results">
-          <div id="searchbox"></div>
-          <div id="hits"></div>
-          <div id="pagination"></div>
-        </div>
+      <div style="flex-shrink: 0; padding: 1rem; width: 70%; ">
+        <div id="hits"></div>
+        <div id="pagination"></div>
       </div>
     </div>
   `;
@@ -58,6 +57,7 @@ export default function decorate(block) {
       });
 
       search.addWidgets([
+        
         searchBox({
           container: '#searchbox',
           placeholder: config.get('placeholder'),
@@ -67,26 +67,31 @@ export default function decorate(block) {
             query,
           },
         }),
+        
         hits({
           container: '#hits',
           templates: {
-            item: (hit, { html, components }) => html`
-        <article>
-          <h1>${components.Highlight({ hit, attribute: 'name' })}</h1>
-          <p>${components.Highlight({ hit, attribute: 'description' })}</p>
-        </article>
-      `,
+            item: (hit, { html, components }) => 
+            html`
+              <article>
+                <h1>${components.Highlight({ hit, attribute: 'name' })}</h1>
+                <p>${components.Highlight({ hit, attribute: 'description' })}</p>
+              </article>
+            `,
           },
         }),
+        
         configure({
           hitsPerPage: 8,
         }),
+        
         panel({
           templates: { header: 'brand' },
         })(refinementList)({
           container: '#brand-list',
           attribute: 'brand',
         }),
+        
         pagination({
           container: '#pagination',
         }),
