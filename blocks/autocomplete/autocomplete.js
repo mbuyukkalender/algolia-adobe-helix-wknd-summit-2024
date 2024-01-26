@@ -107,6 +107,9 @@ export default function decorate(block) {
                   `;
                 },
               },
+              getItemUrl({ item }) {
+                return item.url;
+              },
             },
 
             {
@@ -225,6 +228,9 @@ export default function decorate(block) {
                     </a>
                   `;
                 },
+              },
+              getItemUrl({ item }) {
+                return item.prod_url;
               },
             },
           ];
