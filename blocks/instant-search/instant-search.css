@@ -47,3 +47,7 @@
 .ais-SearchBox-input {
     margin-bottom: auto;
 }
+
+ul.ais-Pagination-list {
+    justify-content: center;
+}
