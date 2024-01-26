@@ -20,7 +20,7 @@ export default function decorate(block) {
       </div>
 
       <div style="flex-shrink: 0; padding: 1rem; width: 70%; ">
-        <div style="display: flex; justify-content: center;">
+        <div style="display: flex; justify-content: flex-end; flex-direction: column; ">
           <div id="hits" style="width: 100%;"></div>
           <div id="pagination" style="width: 100%;"></div>
         </div>
