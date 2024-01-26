@@ -100,7 +100,7 @@ export default function decorate(block) {
         }),
         panel({
           templates: { header: 'price' },
-        })(refinementList)({
+        })(rangeSlider)({
           container: '#priceFacet',
           attribute: 'price.USD.default',
         }),
