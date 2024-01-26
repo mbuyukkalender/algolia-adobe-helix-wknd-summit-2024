@@ -21,8 +21,8 @@ export default function decorate(block) {
 
       <div style="flex-shrink: 0; padding: 1rem; width: 70%; ">
         <div style="display: flex; justify-content: center;">
-          <div id="hits"></div>
-          <div id="pagination"></div>
+          <div id="hits" style="width: 100%;"></div>
+          <div id="pagination" style="width: 100%;"></div>
         </div>
       </div>
     </div>
