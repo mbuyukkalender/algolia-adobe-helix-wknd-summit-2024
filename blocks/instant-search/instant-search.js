@@ -72,7 +72,6 @@ export default function decorate(block) {
       const { hits, widgetParams } = renderOptions;
 
       widgetParams.container.innerHTML = `
-          <div>
             ${hits
               .map(
                 item =>
@@ -127,7 +126,6 @@ export default function decorate(block) {
               </div>`
               )
               .join('')}
-          </div>
         `;
       };
       const customHits = connectHits(renderHits);
