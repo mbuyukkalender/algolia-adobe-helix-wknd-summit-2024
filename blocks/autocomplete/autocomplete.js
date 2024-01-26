@@ -34,6 +34,14 @@ export default function decorate(block) {
             hitsPerPage: 7,
           };
         },
+        transformSource({ source, onTapAhead }) {
+          return {
+            ...source,
+            onSelect({ setIsOpen }) {
+              setIsOpen(true);
+            },
+          };
+        },
       });
 
       autocomplete({
