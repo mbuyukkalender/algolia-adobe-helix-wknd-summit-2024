@@ -9,6 +9,8 @@ export default function decorate(block) {
   const params = new URL(document.location).searchParams;
   const query = params.get('query');
 
+  const { connectHits } = instantsearch.connectors;
+
   block.innerHTML = `
     <div id="searchbox" style="width:100%"></div>
     
@@ -64,6 +66,26 @@ export default function decorate(block) {
         },
       });
 
+
+
+      const renderHits = (renderOptions, isFirstRender) => {
+      const { hits, widgetParams } = renderOptions;
+
+      widgetParams.container.innerHTML = `
+          <ul>
+            ${hits
+              .map(
+                item =>
+                  `<li>
+                    ${instantsearch.highlight({ attribute: 'name', hit: item })}
+                  </li>`
+              )
+              .join('')}
+          </ul>
+        `;
+      };
+      const customHits = connectHits(renderHits);
+
       search.addWidgets([
         
         searchBox({
@@ -80,7 +102,11 @@ export default function decorate(block) {
           container: '#stats',
         }),
 
-        hits({
+        customHits({
+          container: document.querySelector('#hits'),
+        })
+
+        /** hits({
           container: '#hits',
           templates: {
             item: (hit, { html, components }) => 
@@ -136,7 +162,7 @@ export default function decorate(block) {
               </div>
             `,
           },
-        }),
+        }),*/
         
         configure({
           hitsPerPage: 8,
