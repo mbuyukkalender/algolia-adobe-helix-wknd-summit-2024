@@ -77,21 +77,21 @@ export default function decorate(block) {
               .map(
                 item =>
                   `<div class="hover:shadow-lg" style="position: relative; display: flex; height: 100%; flex-direction: column; justify-content: space-between; border-radius: .5rem; border-width: 1px; --tw-border-opacity: 1; border-color: rgb(228 228 231)); transition-property: all; transition-timing-function: cubic-bezier(.4,0,.2,1); transition-duration: .15s; ">
-                <a href="${hit.url}">
+                <a href="${item.url}">
                   <div style="position: relative; display: flex; flex-shrink: 0; flex-grow: 1; flex-direction: column; padding: 1rem; padding-bottom:0; ">
                     <div style="position: relative;">
                       <div style="margin-left: auto; margin-right: auto; aspect-ratio: 1 / 1; width: 80% padding: 1rem;">
-                        <img style="max-width: 100%; height: auto; aspect-ratio: 1 / 1; width: 100%; object-fit: contain;" src="${hit.image_url}" />
+                        <img style="max-width: 100%; height: auto; aspect-ratio: 1 / 1; width: 100%; object-fit: contain;" src="${item.image_url}" />
                       </div>
                     </div>
                     <div style="position: relative; display: flex; flex-grow: 1; flex-direction: column;">
                       <p style="margin-bottom: 0.25rem; font-size: .75rem; line-height: 1rem; font-weight: 600; text-transform: uppercase;">
-                        ${hit.name}
+                        ${item.name}
                       </p>
                       <div style="display: flex; flex-grow: 1; align-items: flex-end; justify-content: space-between;">
                         <p style="margin-bottom: 1rem; font-size: .875rem; line-height: 1.25rem; font-weight: 700; color: #003DFF; ">
                           <span>
-                            ${hit.price.USD.default_formated}
+                            ${item.price.USD.default_formated}
                           </span>
                         </p>
                       </div>
