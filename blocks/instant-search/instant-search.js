@@ -104,7 +104,7 @@ export default function decorate(block) {
 
         customHits({
           container: document.querySelector('#hits'),
-        })
+        }),
 
         /** hits({
           container: '#hits',
