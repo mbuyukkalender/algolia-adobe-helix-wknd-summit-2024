@@ -51,3 +51,7 @@
 ul.ais-Pagination-list {
     justify-content: center;
 }
+
+.ais-SearchBox-reset {
+    top: 20% !important;
+}
