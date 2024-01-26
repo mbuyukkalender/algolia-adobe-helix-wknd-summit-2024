@@ -25,7 +25,7 @@ export default function decorate(block) {
             <div id="stats"></div>
             <div id="sorting"></div>
           </div>
-          <div id="hits" style="width: 100%;"></div>
+          <div id="hits" style="width: 100%; padding-top: 1rem;"></div>
           <div id="pagination" style="width: 100%;"></div>
         </div>
       </div>
