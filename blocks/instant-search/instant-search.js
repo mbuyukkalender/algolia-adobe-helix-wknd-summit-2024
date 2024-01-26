@@ -85,7 +85,7 @@ export default function decorate(block) {
           templates: {
             item: (hit, { html, components }) => 
             html`
-              <div class="hover:shadow-lg" style="position: relative; display: flex; height: 100%; flex-direction: column; justify-content: space-between; border-radius: var(--theme-border-radius-card, .5rem); border-width: 1px; --tw-border-opacity: 1; border-color: rgb(228 228 231 / var(--tw-border-opacity)); transition-property: all; transition-timing-function: cubic-bezier(.4,0,.2,1); transition-duration: .15s; ">
+              <div style="position: relative; display: flex; height: 100%; flex-direction: column; justify-content: space-between; border-radius: var(--theme-border-radius-card, .5rem); border-width: 1px; --tw-border-opacity: 1; border-color: rgb(228 228 231 / var(--tw-border-opacity)); transition-property: all; transition-timing-function: cubic-bezier(.4,0,.2,1); transition-duration: .15s; ">
                 <a href="${hit.url}">
                   <div style="position: relative; display: flex; flex-shrink: 0; flex-grow: 1; flex-direction: column; padding: 1rem; padding-bottom:0; ">
                     <div style="position: relative;">
