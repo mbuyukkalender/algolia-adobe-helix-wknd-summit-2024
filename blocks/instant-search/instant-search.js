@@ -11,6 +11,7 @@ export default function decorate(block) {
 
   block.innerHTML = `
     <div id="searchbox" style="width:100%"></div>
+    
     <div style="display: flex;">    
       <div style="flex-shrink: 0; padding: 1rem; width: 30%; ">
       <div id="catLvl0Facet"></div>  
@@ -19,8 +20,10 @@ export default function decorate(block) {
       </div>
 
       <div style="flex-shrink: 0; padding: 1rem; width: 70%; ">
-        <div id="hits"></div>
-        <div id="pagination"></div>
+        <div style="display: flex; justify-content: center;">
+          <div id="hits"></div>
+          <div id="pagination"></div>
+        </div>
       </div>
     </div>
   `;
@@ -103,6 +106,7 @@ export default function decorate(block) {
         })(rangeSlider)({
           container: '#priceFacet',
           attribute: 'price.USD.default',
+          pips: false,
         }),
 
         pagination({
