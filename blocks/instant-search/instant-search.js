@@ -4,7 +4,7 @@ import '../../scripts/lib-instant-search.js';
 export default function decorate(block) {
   const { algoliasearch, instantsearch } = window;
   const {
-    searchBox, hits, configure, panel, refinementList, pagination, rangeSlider
+    searchBox, stats, hits, configure, panel, refinementList, pagination, rangeSlider
   } = instantsearch.widgets;
   const params = new URL(document.location).searchParams;
   const query = params.get('query');
@@ -14,13 +14,14 @@ export default function decorate(block) {
     
     <div style="display: flex;">    
       <div style="flex-shrink: 0; padding: 1rem; width: 30%; ">
-      <div id="catLvl0Facet"></div>  
-      <div id="colorFacet"></div>
+        <div id="catLvl0Facet"></div>  
+        <div id="colorFacet"></div>
         <div id="priceFacet"></div>
       </div>
 
       <div style="flex-shrink: 0; padding: 1rem; width: 70%; ">
         <div style="display: flex; justify-content: flex-end; flex-direction: column; ">
+          <div id="stats" style="width: 100%;"></div>
           <div id="hits" style="width: 100%;"></div>
           <div id="pagination" style="width: 100%;"></div>
         </div>
@@ -72,6 +73,10 @@ export default function decorate(block) {
           },
         }),
         
+        stats({
+          container: '#stats',
+        }),
+
         hits({
           container: '#hits',
           templates: {
