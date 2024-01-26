@@ -80,9 +80,10 @@ export default function decorate(block) {
                   return html`
                     <a
                       href="${item.url}"
-                      target="_blank"
+                      target="_self"
                       rel="noreferrer noopener"
                       className="aa-ItemLink aa-ProductItem"
+                      style="text-decoration: none;"
                     >
                       <div style="cursor: pointer; padding-top: 0.75rem; padding-bottom: 0.75rem;">
                         <div style="display: flex; align-items: center;">
@@ -97,12 +98,6 @@ export default function decorate(block) {
                                 attribute: 'name',
                               })}
                             </p>
-                            <h3 style="margin-bottom: 0.5rem; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; font-size: .875rem; line-height: 1.375; ">
-                              ${components.Snippet({
-                                hit: item,
-                                attribute: 'short_description',
-                              })}
-                            </h3>
                             <p style="font-size: .75rem; line-height: 1rem; font-weight: 700; color: #003DFF; ">
                               <span>${item.price.USD.default_formated}</span>
                             </p>
@@ -218,7 +213,7 @@ export default function decorate(block) {
               templates: {
                 item({ item, components, html }) {
                   return html`
-                    <a href="${item.prod_url}" target="_blank">
+                    <a href="${item.prod_url}" target="_self">
                       <div style="width: 100%; max-width: 36rem; padding-top: 0.75rem; padding-bottom: 0.75rem;" >
                         <div style="position: relative; margin-bottom: 0.5rem; flex: none; align-self: center;">
                           <img style="max-height: 6rem; width: 100%; object-fit: cover;" src="${item.prod_img}" />
