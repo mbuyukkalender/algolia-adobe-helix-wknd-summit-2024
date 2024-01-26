@@ -13,7 +13,8 @@ export default function decorate(block) {
     <div id="searchbox" style="width:100%"></div>
     <div style="display: flex;">    
       <div style="flex-shrink: 0; padding: 1rem; width: 30%; ">
-        <div id="colorFacet"></div>
+      <div id="catLvl0Facet"></div>  
+      <div id="colorFacet"></div>
         <div id="priceFacet"></div>
       </div>
 
@@ -86,12 +87,24 @@ export default function decorate(block) {
         }),
         
         panel({
+          templates: { header: 'category' },
+        })(refinementList)({
+          container: '#catLvl0Facet',
+          attribute: 'categories.level0',
+        }),
+        panel({
           templates: { header: 'color' },
         })(refinementList)({
           container: '#colorFacet',
           attribute: 'color',
         }),
-        
+        panel({
+          templates: { header: 'price' },
+        })(refinementList)({
+          container: '#priceFacet',
+          attribute: 'price.USD.default',
+        }),
+
         pagination({
           container: '#pagination',
         }),
