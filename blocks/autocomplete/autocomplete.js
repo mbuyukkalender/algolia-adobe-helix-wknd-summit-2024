@@ -23,6 +23,14 @@ export default function decorate(block) {
       const recentSearchesPlugin = createLocalStorageRecentSearchesPlugin({
         key: 'RECENT_SEARCH',
         limit: 5,
+        transformSource({ source, onRemove }) {
+          return {
+            ...source,
+            onSelect({ setIsOpen }) {
+              setIsOpen(true);
+            },
+          };
+        },
       });
 
       const querySuggestionsPlugin = createQuerySuggestionsPlugin({
