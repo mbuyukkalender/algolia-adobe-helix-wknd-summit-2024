@@ -21,7 +21,10 @@ export default function decorate(block) {
 
       <div style="flex-shrink: 0; padding: 1rem; width: 70%; ">
         <div style="display: flex; justify-content: flex-end; flex-direction: column; ">
-          <div id="stats" style="width: 100%;"></div>
+          <div style="width: 100%; display: flex; justify-content: flex-end;">
+            <div id="stats"></div>
+            <div id="sorting"></div>
+          </div>
           <div id="hits" style="width: 100%;"></div>
           <div id="pagination" style="width: 100%;"></div>
         </div>
