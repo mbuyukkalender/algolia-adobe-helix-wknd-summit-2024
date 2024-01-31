@@ -172,11 +172,11 @@ ul.ais-Pagination-list {
 }
 
 .top-1\/2 {
-    top: 50%;
+    top: 25%;
 }
 
 .left-1\/2 {
-    left: 50%;
+    left: 5%;
 }
 
 .absolute {
@@ -194,3 +194,8 @@ svg:not(:host).svg-inline--fa {
     height: 1em;
     overflow: visible;
     vertical-align: -0.125em;
+}
+
+.stroke-colorBp-primary {
+    stroke: rgba(0, 61, 255, 1);
+}
