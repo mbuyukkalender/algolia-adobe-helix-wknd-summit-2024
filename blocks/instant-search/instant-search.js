@@ -138,14 +138,16 @@ export default function decorate(block) {
               let count = '';
 
               if (data.hasManyResults) {
-                count += `${data.nbHits} results`;
+                count += `${data.nbHits}`;
               } else if (data.hasOneResult) {
-                count += `1 result`;
+                count += `1`;
               } else {
-                count += `no result`;
+                count += `no`;
               }
 
-              return html`<span style="color: red;">${count} found in ${data.processingTimeMS}ms</span>`;
+              return html`<p style="font-size: .875rem;"><span style="color: #003DFF;">${count} </span>
+              <span>results found in</span>
+              <span style="color: #003DFF;"> ${data.processingTimeMS}ms</span></p>`;
             },
           },
         }),
