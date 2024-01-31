@@ -58,7 +58,7 @@ export default function decorate(block) {
 
       const recommendClient = algoliarecommend(config.get('appId'), config.get('searchApiKey'));
       const indexName = config.get('indexName');
-      const { recommendations } = trendingItems({
+      const recommendations = trendingItems({
         recommendClient,
         indexName,
         maxRecommendations: 5
