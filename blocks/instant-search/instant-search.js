@@ -23,7 +23,7 @@ export default function decorate(block) {
 
       <div style="flex-shrink: 0; padding: 1rem; width: 70%; ">
         <div style="display: flex; justify-content: flex-end; flex-direction: column; ">
-          <div style="width: 100%; display: flex; justify-content: flex-end;">
+          <div style="width: 100%; display: flex; justify-content: flex-end; border-top: solid 1px; border-color: rgb(210 210 210);">
             <div id="stats"></div>
             <div id="sorting"></div>
           </div>
