@@ -56,7 +56,7 @@ export default function decorate(block) {
         },
       });
 
-      const recommendClient = algoliarecommend(config.get('appId'), config.get('searchApiKey'));
+      const recommendClient = algoliarecommend('appId','searchApiKey');
       const indexName = config.get('indexName');
       const { recommendations } = trendingItems({
         recommendClient,
