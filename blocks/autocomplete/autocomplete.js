@@ -2,13 +2,17 @@ import '../../scripts/lib-algoliasearch.js';
 import '../../scripts/lib-autocomplete.js';
 import '../../scripts/lib-autocomplete-plugin-recent-searches.js';
 import '../../scripts/lib-autocomplete-plugin-query-suggestions.js';
+import '../../scripts/lib-recommend-js.js';
+import '../../scripts/lib-recommend.js';
 
 export default function decorate(block) {
   const { algoliasearch } = window;
   const { autocomplete, getAlgoliaResults } = window['@algolia/autocomplete-js'];
   const { createLocalStorageRecentSearchesPlugin } = window['@algolia/autocomplete-plugin-recent-searches'];
   const { createQuerySuggestionsPlugin } = window['@algolia/autocomplete-plugin-query-suggestions'];
-
+  
+  const { trendingItems } = window['@algolia/recommend-js'];
+  const { recommend } = window['@algolia/recommend'];
 
 
   fetch('/config/algolia.json')
@@ -52,6 +56,14 @@ export default function decorate(block) {
         },
       });
 
+      const recommendClient = recommend(config.get('appId'), config.get('searchApiKey'));
+      const indexName = config.get('indexName');
+      const { recommendations } = trendingItems({
+        recommendClient,
+        indexName,
+        maxRecommendations: 5
+      });
+
       autocomplete({
         container: block,
         placeholder: config.get('placeholder'),
@@ -65,7 +77,51 @@ export default function decorate(block) {
         getSources({ query }) {
 
           if (!query) {
-            return [];
+            return [
+              {
+                sourceId: 'products',
+                getItems() {
+                  return recommendations ;
+                },
+                templates: {
+                  item({ item, components, html }) {
+                    return html`
+                      <a
+                        href="${item.url}"
+                        target="_self"
+                        rel="noreferrer noopener"
+                        className="aa-ItemLink aa-ProductItem"
+                        style="text-decoration: none;"
+                      >
+                        <div style="cursor: pointer; padding-top: 0.75rem; padding-bottom: 0.75rem;">
+                          <div style="display: flex; align-items: center;">
+                            <div style="position: relative; margin-right: 1rem; width: 5rem; flex-shrink: 0; align-self: center;">
+                              <img style="aspect-ratio: 1 / 1; width: 100%; object-fit: contain;" src="${item.image_url}" alt="${item.name}"/>
+                            </div>
+                            
+                            <div style="position: relative; align-self: center;">
+                              <p style="margin-bottom: 0.25rem; font-size: .75rem; font-weight: 700; text-transform: uppercase; line-height: 1;">
+                                ${components.Highlight({
+                                  hit: item,
+                                  attribute: 'name',
+                                })}
+                              </p>
+                              <p style="font-size: .75rem; line-height: 1rem; font-weight: 700; color: #003DFF; ">
+                                <span>${item.price.USD.default_formated}</span>
+                              </p>
+                            </div>
+
+                          </div>
+                        </div>
+                      </a>
+                    `;
+                  },
+                },
+                getItemUrl({ item }) {
+                  return item.url;
+                },
+              },
+            ];
           }
 
           return [
