@@ -332,6 +332,8 @@ export default function decorate(block) {
                     </div>
                   </div>
 
+                  <div id="trendingItems"></div>
+
                   <div style="padding: 1rem; width: 30%;">
                     <div class="aa-SourceHeader">
                       <h2 style="text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem; font-family: monospace; font-size: 16px;">
@@ -352,7 +354,7 @@ export default function decorate(block) {
         renderNoResults({ render, html, state }, root) {
           render(
             html`
-              <div id="trendingItems"></div>
+              <div></div>
             `,
             root
           )
