@@ -2,8 +2,8 @@ import '../../scripts/lib-algoliasearch.js';
 import '../../scripts/lib-autocomplete.js';
 import '../../scripts/lib-autocomplete-plugin-recent-searches.js';
 import '../../scripts/lib-autocomplete-plugin-query-suggestions.js';
-import '../../scripts/lib-recommend-js.js';
-import '../../scripts/lib-recommend.js';
+/* import '../../scripts/lib-recommend-js.js';
+import '../../scripts/lib-recommend.js'; */
 
 export default function decorate(block) {
   const { algoliasearch } = window;
@@ -11,8 +11,8 @@ export default function decorate(block) {
   const { createLocalStorageRecentSearchesPlugin } = window['@algolia/autocomplete-plugin-recent-searches'];
   const { createQuerySuggestionsPlugin } = window['@algolia/autocomplete-plugin-query-suggestions'];
   
-  const { trendingItems } = window['@algolia/recommend-js'];
-  const { algoliarecommend } = window;
+  /* const { trendingItems } = window['@algolia/recommend-js'];
+  const { algoliarecommend } = window; */
 
 
   fetch('/config/algolia.json')
@@ -56,7 +56,7 @@ export default function decorate(block) {
         },
       });
 
-      const recommendClient = algoliarecommend(config.get('appId'), config.get('searchApiKey'));
+      /*const recommendClient = algoliarecommend(config.get('appId'), config.get('searchApiKey'));
       const indexName = config.get('indexName');
       trendingItems({
         container: '#trendingItems',
@@ -94,7 +94,7 @@ export default function decorate(block) {
             </a>
           `;
         },
-      });
+      }); */
 
 
       autocomplete({
@@ -332,8 +332,6 @@ export default function decorate(block) {
                     </div>
                   </div>
 
-                  <div id="trendingItems"></div>
-
                   <div style="padding: 1rem; width: 30%;">
                     <div class="aa-SourceHeader">
                       <h2 style="text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem; font-family: monospace; font-size: 16px;">
@@ -349,15 +347,6 @@ export default function decorate(block) {
             `,
             root
           );
-        },
-        
-        renderNoResults({ render, html, state }, root) {
-          render(
-            html`
-              <div></div>
-            `,
-            root
-          )
         },
       });
     });
