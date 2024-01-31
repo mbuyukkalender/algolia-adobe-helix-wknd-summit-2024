@@ -209,3 +209,7 @@ svg:not(:host).svg-inline--fa {
 .ais-RangeSlider .rheostat-tooltip {
     font-size: .875rem !important;
 }
+
+.ais-Panel-header {
+    font-size: 1rem !important;
+}
