@@ -145,9 +145,9 @@ export default function decorate(block) {
                 count += `no`;
               }
 
-              return html`<p style="font-size: .875rem;"><span style="color: #003DFF;">${count} </span>
+              return html`<p style="font-size: .875rem;"><span style="color: #003DFF; font-weight: 600;">${count} </span>
               <span>results found in</span>
-              <span style="color: #003DFF;"> ${data.processingTimeMS}ms</span></p>`;
+              <span style="color: #003DFF; font-weight: 600;"> ${data.processingTimeMS}ms</span></p>`;
             },
           },
         }),
