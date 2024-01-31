@@ -12,7 +12,7 @@ export default function decorate(block) {
   const { createQuerySuggestionsPlugin } = window['@algolia/autocomplete-plugin-query-suggestions'];
   
   const { trendingItems } = window['@algolia/recommend-js'];
-  const { algoliarecommend } = window['@algolia/recommend'];
+  const { recommend } = window;
 
 
   fetch('/config/algolia.json')
@@ -56,7 +56,7 @@ export default function decorate(block) {
         },
       });
 
-      const recommendClient = algoliarecommend('appId','searchApiKey');
+      const recommendClient = recommend(config.get('appId'), config.get('searchApiKey'),);
       const indexName = config.get('indexName');
       const { recommendations } = trendingItems({
         recommendClient,
