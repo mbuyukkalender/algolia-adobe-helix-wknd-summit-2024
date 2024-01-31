@@ -145,7 +145,7 @@ export default function decorate(block) {
                 count += `no result`;
               }
 
-              return html`<span>${count} found in ${data.processingTimeMS}ms</span>`;
+              return html`<span style="color: red;">${count} found in ${data.processingTimeMS}ms</span>`;
             },
           },
         }),
