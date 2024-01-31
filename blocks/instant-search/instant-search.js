@@ -133,6 +133,21 @@ export default function decorate(block) {
         
         stats({
           container: '#stats',
+          templates: {
+            text(data, { html }) {
+              let count = '';
+
+              if (data.hasManyResults) {
+                count += `${data.nbHits} results`;
+              } else if (data.hasOneResult) {
+                count += `1 result`;
+              } else {
+                count += `no result`;
+              }
+
+              return html`<span>${count} found in ${data.processingTimeMS}ms</span>`;
+            },
+          },
         }),
 
         customHits({
