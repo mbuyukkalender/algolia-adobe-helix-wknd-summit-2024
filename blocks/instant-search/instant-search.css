@@ -196,6 +196,12 @@ svg:not(:host).svg-inline--fa {
     vertical-align: -0.125em;
 }
 
-.stroke-colorBp-primary {
-    stroke: rgba(0, 61, 255, 1);
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transition-duration: .25s;
+}
+
+#hit_card:hover {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); 
 }

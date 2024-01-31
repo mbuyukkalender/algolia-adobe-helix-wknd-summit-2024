@@ -75,7 +75,7 @@ export default function decorate(block) {
             ${hits
               .map(
                 item =>
-                  `<div class="hover:shadow-lg" style="position: relative; display: flex; height: 100%; flex-direction: column; justify-content: space-between; border-width: 1px; border: solid 1px ; border-color: rgb(210 210 210); transition-property: all; transition-timing-function: cubic-bezier(.4,0,.2,1); transition-duration: .15s; ">
+                  `<div id="hit_card" class="transition-all" style="position: relative; display: flex; height: 100%; flex-direction: column; justify-content: space-between; border-width: 1px; border: solid 1px ; border-color: rgb(210 210 210);">
                     <a href="${item.url}" style="text-decoration: none !important; " >
                       <div style="position: relative; display: flex; flex-shrink: 0; flex-grow: 1; flex-direction: column; padding: 1rem; padding-bottom:0; ">
                         <div style="position: relative;">
