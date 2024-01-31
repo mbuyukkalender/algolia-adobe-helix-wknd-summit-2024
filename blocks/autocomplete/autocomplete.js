@@ -76,10 +76,6 @@ export default function decorate(block) {
         
         getSources({ query }) {
 
-          /*if (!query) {
-            return [];
-          }*/
-
           return [
             {
               sourceId: 'products',
@@ -318,6 +314,44 @@ export default function decorate(block) {
             `,
             root
           );
+        },
+
+        renderNoResults({ render, html, state }, root) {
+          {recommendations.map((item) => (
+            render(
+              html`
+                <a
+                  href="${item.url}"
+                  target="_self"
+                  rel="noreferrer noopener"
+                  className="aa-ItemLink aa-ProductItem"
+                  style="text-decoration: none;"
+                >
+                  <div style="cursor: pointer; padding-top: 0.75rem; padding-bottom: 0.75rem;">
+                    <div style="display: flex; align-items: center;">
+                      <div style="position: relative; margin-right: 1rem; width: 5rem; flex-shrink: 0; align-self: center;">
+                        <img style="aspect-ratio: 1 / 1; width: 100%; object-fit: contain;" src="${item.image_url}" alt="${item.name}"/>
+                      </div>
+                      
+                      <div style="position: relative; align-self: center;">
+                        <p style="margin-bottom: 0.25rem; font-size: .75rem; font-weight: 700; text-transform: uppercase; line-height: 1;">
+                          ${components.Highlight({
+                            hit: item,
+                            attribute: 'name',
+                          })}
+                        </p>
+                        <p style="font-size: .75rem; line-height: 1rem; font-weight: 700; color: #003DFF; ">
+                          <span>${item.price.USD.default_formated}</span>
+                        </p>
+                      </div>
+
+                    </div>
+                  </div>
+                </a>
+              `,
+              root
+            )
+          ))}
         },
       });
     });
