@@ -48,7 +48,7 @@ export default function decorate(block) {
 
   const buttons = document.getElementsByClassName("tablinks");
   for (var i = 0; i < buttons.length; i++) {
-    button.addEventListener('click', () => {
+    buttons[i].addEventListener('click', () => {
       alert('hehe');
     });
   }
