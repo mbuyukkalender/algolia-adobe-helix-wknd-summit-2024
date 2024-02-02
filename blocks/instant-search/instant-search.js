@@ -1,6 +1,24 @@
 import '../../scripts/lib-algoliasearch.js';
 import '../../scripts/lib-instant-search.js';
 
+export function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+
 
 export default function decorate(block) {
   const { algoliasearch, instantsearch } = window;
@@ -16,7 +34,7 @@ export default function decorate(block) {
     <div id="searchbox" style="width:100%"></div>
 
     <div class="tab">
-      <button class="tablinks" onclick="openTab(event, 'All')">ALL RESULTS</button>
+      <button class="tablinks" onclick="this.openTab(event, 'All')">ALL RESULTS</button>
       <button class="tablinks" onclick="openTab(event, 'Products')">PRODUCTS</button>
       <button class="tablinks" onclick="openTab(event, 'Articles')">ARTICLES</button>
     </div>
@@ -47,23 +65,6 @@ export default function decorate(block) {
     <div id="Articles" style="display: flex;">
     </div>
   `;
-
-    function openTab(evt, tabName) {
-      var i, tabcontent, tablinks;
-      
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      
-      document.getElementById(cityName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
 
   fetch('/config/algolia.json')
     .then(async (response) => {
