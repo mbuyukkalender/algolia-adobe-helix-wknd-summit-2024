@@ -45,8 +45,6 @@ export default function decorate(block) {
 
     <div class="tab">
       <button class="tablinks" onClick=${openTab2}>ALL RESULTS</button>
-      <button class="tablinks" onClick=${openTab(this,"Products")}>PRODUCTS</button>
-      <button class="tablinks" onClick="alert(this)">ARTICLES</button>
     </div>
 
 
