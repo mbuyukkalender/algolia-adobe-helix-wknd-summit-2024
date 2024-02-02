@@ -12,10 +12,10 @@ export default function decorate(block) {
   const { connectHits } = instantsearch.connectors;
 
   const openTab = (evt, tabName) => {
-       
+    alert("haha");
     let tabcontent = document.getElementsByClassName("tabcontent");
 
-    let i, tablinks;
+    /*let i, tablinks;
     for (i = 0; i < tabcontent.length; i++) {
       tabcontent[i].style.display = "none";
     }
@@ -31,7 +31,12 @@ export default function decorate(block) {
     
     if (evt != null) {
       evt.currentTarget.className += " active";
-    }
+    }*/
+  };
+
+ const openTab2 = () => {
+    alert("hehe");
+    let tabcontent = document.getElementsByClassName("tabcontent");
   };
 
 
@@ -39,7 +44,7 @@ export default function decorate(block) {
     <div id="searchbox" style="width:100%"></div>
 
     <div class="tab">
-      <button class="tablinks" onClick=${openTab(this,"All")}>ALL RESULTS</button>
+      <button class="tablinks" onClick=${openTab2}>ALL RESULTS</button>
       <button class="tablinks" onClick=${openTab(this,"Products")}>PRODUCTS</button>
       <button class="tablinks" onClick="alert(this)">ARTICLES</button>
     </div>
