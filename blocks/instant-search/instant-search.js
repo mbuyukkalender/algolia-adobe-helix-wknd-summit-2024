@@ -15,14 +15,16 @@ export default function decorate(block) {
     <div id="searchbox" style="width:100%"></div>
 
     <div class="tab">
-      <button class="tablinks">ALL RESULTS</button>
+      <button id="All_Tab" class="tablinks">ALL RESULTS</button>
+      <button id="Products_Tab" class="tablinks">Products</button>
+      <button id="Articles_Tab" class="tablinks">Articles</button>
     </div>
 
 
-    <div id="All" style="display: flex;">
+    <div id="All" style="display: flex;" class="tabcontent">
     </div>
 
-    <div id="Products" style="display: flex;">    
+    <div id="Products" style="display: flex;" class="tabcontent">    
       <div style="flex-shrink: 0; padding: 1rem; width: 30%; ">
         <div id="catLvl0Facet"></div>  
         <div id="colorFacet"></div>
@@ -41,17 +43,34 @@ export default function decorate(block) {
       </div>
     </div>
 
-    <div id="Articles" style="display: flex;">
+    <div id="Articles" style="display: flex;" class="tabcontent">
     </div>
   `;
 
 
   const buttons = document.getElementsByClassName("tablinks");
   for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', () => {
+    buttons[i].addEventListener('click', (event) => {
       alert('hehe');
+      var j, tabcontent, tablinks;
+
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (j = 0; j < tabcontent.length; j++) {
+        tabcontent[j].style.display = "none";
+      }
+
+      tablinks = document.getElementsByClassName("tablinks");
+      for (j = 0; j < tablinks.length; j++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+
+      var divId = buttons[i].id.split('_')[0];
+      document.getElementById(divId).style.display = "block";
+      event.currentTarget.className += " active";
     });
   }
+  
+
 
   fetch('/config/algolia.json')
     .then(async (response) => {
