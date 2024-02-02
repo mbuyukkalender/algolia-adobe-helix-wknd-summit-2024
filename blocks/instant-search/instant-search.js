@@ -1,7 +1,7 @@
 import '../../scripts/lib-algoliasearch.js';
 import '../../scripts/lib-instant-search.js';
 
-export function openTab(evt, tabName) {
+export default function openTab(evt, tabName) {
   var i, tabcontent, tablinks;
   
   tabcontent = document.getElementsByClassName("tabcontent");
