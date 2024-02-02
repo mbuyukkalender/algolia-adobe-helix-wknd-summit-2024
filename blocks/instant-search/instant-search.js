@@ -11,30 +11,8 @@ export default function decorate(block) {
 
   const { connectHits } = instantsearch.connectors;
 
-  const openTab = (evt, tabName) => {
-    alert("haha");
-    let tabcontent = document.getElementsByClassName("tabcontent");
 
-    /*let i, tablinks;
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    
-    if (document.getElementById(tabName)!= null) {
-      document.getElementById(tabName).style.display = "block";
-    }
-    
-    if (evt != null) {
-      evt.currentTarget.className += " active";
-    }*/
-  };
-
- const openTab2 = function openTab() {
+  const openTab2 = () => {
     alert('hehe');
   };
 
