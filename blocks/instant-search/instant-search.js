@@ -34,9 +34,8 @@ export default function decorate(block) {
     }*/
   };
 
- const openTab2 = () => {
+ const openTab2 = async () => {
     alert("hehe");
-    let tabcontent = document.getElementsByClassName("tabcontent");
   };
 
 
