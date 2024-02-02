@@ -64,7 +64,7 @@ export default function decorate(block) {
         tablinks[j].className = tablinks[j].className.replace(" active", "");
       }
 
-      var divId = buttons[i].id.split('_')[0];
+      var divId = this.id.split('_')[0];
       document.getElementById(divId).style.display = "block";
       event.currentTarget.className += " active";
     });
