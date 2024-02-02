@@ -33,8 +33,8 @@ export default function decorate(block) {
     <div id="searchbox" style="width:100%"></div>
 
     <div class="tab">
-      <button class="tablinks" onclick="${onCtaCoverClick(this,"All")}">ALL RESULTS</button>
-      <button class="tablinks" onclick="${onCtaCoverClick(this,"Products")}">PRODUCTS</button>
+      <button class="tablinks" onclick="${openTab(this,"All")}">ALL RESULTS</button>
+      <button class="tablinks" onclick="${openTab(this,"Products")}">PRODUCTS</button>
       <button class="tablinks" onclick="openTab(event, 'Articles')">ARTICLES</button>
     </div>
 
