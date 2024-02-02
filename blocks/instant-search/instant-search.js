@@ -51,7 +51,6 @@ export default function decorate(block) {
   const buttons = document.getElementsByClassName("tablinks");
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', (event) => {
-      alert('hehe');
       var j, tabcontent, tablinks;
 
       tabcontent = document.getElementsByClassName("tabcontent");
@@ -65,7 +64,7 @@ export default function decorate(block) {
       }
 
       var divId = event.currentTarget.id.split('_')[0];
-      document.getElementById(divId).style.display = "block";
+      document.getElementById(divId).style.display = "flex";
       event.currentTarget.className += " active";
     });
   }
