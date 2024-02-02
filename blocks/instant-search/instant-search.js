@@ -11,7 +11,7 @@ export default function decorate(block) {
 
   const { connectHits } = instantsearch.connectors;
 
-  const openTab = (evt, tabName) => {
+  const openTab = async (evt, tabName) => {
     let i, tabcontent, tablinks;
     
     tabcontent = document.getElementsByClassName("tabcontent");
