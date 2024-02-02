@@ -11,17 +11,11 @@ export default function decorate(block) {
 
   const { connectHits } = instantsearch.connectors;
 
-
-  const openTab2 = () => {
-    alert('hehe');
-  };
-
-
   block.innerHTML = `
     <div id="searchbox" style="width:100%"></div>
 
     <div class="tab">
-      <button class="tablinks" onClick=${openTab2}>ALL RESULTS</button>
+      <button class="tablinks">ALL RESULTS</button>
     </div>
 
 
@@ -50,6 +44,12 @@ export default function decorate(block) {
     <div id="Articles" style="display: flex;">
     </div>
   `;
+
+
+  const button = document.getElementsByClassName("tablinks");
+  button.addEventListener('click', () => {
+      alert('hehe');
+  });
 
   fetch('/config/algolia.json')
     .then(async (response) => {
