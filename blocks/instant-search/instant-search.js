@@ -34,8 +34,8 @@ export default function decorate(block) {
     }*/
   };
 
- const openTab2 = () => {
-    alert("hehe");
+ const openTab2 = function openTab() {
+    alert('hehe');
   };
 
 
