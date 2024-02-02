@@ -13,7 +13,14 @@ export default function decorate(block) {
 
   block.innerHTML = `
     <div id="searchbox" style="width:100%"></div>
-    
+
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'All')">ALL RESULTS</button>
+      <button class="tablinks" onclick="openCity(event, 'Products')">PRODUCTS</button>
+      <button class="tablinks" onclick="openCity(event, 'Articles')">ARTICLES</button>
+    </div>
+
+
     <div style="display: flex;">    
       <div style="flex-shrink: 0; padding: 1rem; width: 30%; ">
         <div id="catLvl0Facet"></div>  
