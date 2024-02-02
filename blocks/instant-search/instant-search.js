@@ -12,7 +12,7 @@ export default function decorate(block) {
   const { connectHits } = instantsearch.connectors;
 
   const openTab = (evt, tabName) => {
-    var i, tabcontent, tablinks;
+    let i, tabcontent, tablinks;
     
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
@@ -38,9 +38,9 @@ export default function decorate(block) {
     <div id="searchbox" style="width:100%"></div>
 
     <div class="tab">
-      <button class="tablinks" onclick="${openTab}">ALL RESULTS</button>
-      <button class="tablinks" onclick="${openTab(this,"Products")}">PRODUCTS</button>
-      <button class="tablinks" onclick="alert(this)">ARTICLES</button>
+      <button class="tablinks" onClick="${openTab}">ALL RESULTS</button>
+      <button class="tablinks" onClick="${openTab(this,"Products")}">PRODUCTS</button>
+      <button class="tablinks" onClick="alert(this)">ARTICLES</button>
     </div>
 
 
