@@ -13,9 +13,9 @@ export default function decorate(block) {
 
   const openTab = (evt, tabName) => {
        
-    tabcontent = document.getElementsByClassName("tabcontent");
+    let tabcontent = document.getElementsByClassName("tabcontent");
 
-    let i, tabcontent, tablinks;
+    let i, tablinks;
     for (i = 0; i < tabcontent.length; i++) {
       tabcontent[i].style.display = "none";
     }
