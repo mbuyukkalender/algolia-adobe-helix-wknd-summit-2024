@@ -1,6 +1,24 @@
 import '../../scripts/lib-algoliasearch.js';
 import '../../scripts/lib-instant-search.js';
 
+
+export function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
 export default function decorate(block) {
   const { algoliasearch, instantsearch } = window;
   const {
@@ -15,13 +33,16 @@ export default function decorate(block) {
     <div id="searchbox" style="width:100%"></div>
 
     <div class="tab">
-      <button class="tablinks" onclick="openCity(event, 'All')">ALL RESULTS</button>
-      <button class="tablinks" onclick="openCity(event, 'Products')">PRODUCTS</button>
-      <button class="tablinks" onclick="openCity(event, 'Articles')">ARTICLES</button>
+      <button class="tablinks" onclick="openTab(event, 'All')">ALL RESULTS</button>
+      <button class="tablinks" onclick="openTab(event, 'Products')">PRODUCTS</button>
+      <button class="tablinks" onclick="openTab(event, 'Articles')">ARTICLES</button>
     </div>
 
 
-    <div style="display: flex;">    
+    <div id="All" style="display: flex;">
+    </div>
+
+    <div id="Products" style="display: flex;">    
       <div style="flex-shrink: 0; padding: 1rem; width: 30%; ">
         <div id="catLvl0Facet"></div>  
         <div id="colorFacet"></div>
@@ -38,6 +59,9 @@ export default function decorate(block) {
           <div id="pagination" style="width: 100%;"></div>
         </div>
       </div>
+    </div>
+
+    <div id="Articles" style="display: flex;">
     </div>
   `;
 
@@ -73,12 +97,9 @@ export default function decorate(block) {
         },
       });
 
-
-
       const renderHits = (renderOptions, isFirstRender) => {
       const { hits, widgetParams } = renderOptions;
-
-      widgetParams.container.innerHTML = `
+        widgetParams.container.innerHTML = `
             ${hits
               .map(
                 item =>

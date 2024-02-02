@@ -227,6 +227,8 @@ svg:not(:host).svg-inline--fa {
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 /* Style the buttons inside the tab */
