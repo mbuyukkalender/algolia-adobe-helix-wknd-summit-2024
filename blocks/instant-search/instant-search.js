@@ -46,10 +46,12 @@ export default function decorate(block) {
   `;
 
 
-  const button = document.getElementsByClassName("tablinks");
-  button.addEventListener('click', () => {
+  const buttons = document.getElementsByClassName("tablinks");
+  for (i = 0; i < buttons.length; i++) {
+    button.addEventListener('click', () => {
       alert('hehe');
-  });
+    });
+  }
 
   fetch('/config/algolia.json')
     .then(async (response) => {
