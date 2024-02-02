@@ -11,7 +11,7 @@ export default function decorate(block) {
 
   const { connectHits } = instantsearch.connectors;
 
-  const openTab = async (evt, tabName) => {
+  const openTab = async () => {
     let i, tabcontent, tablinks;
     
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -24,13 +24,13 @@ export default function decorate(block) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     
-    if (document.getElementById(tabName)!= null) {
+    /*if (document.getElementById(tabName)!= null) {
       document.getElementById(tabName).style.display = "block";
     }
     
     if (evt != null) {
       evt.currentTarget.className += " active";
-    }
+    }*/
   };
 
 
