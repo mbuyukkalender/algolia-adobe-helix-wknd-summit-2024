@@ -11,7 +11,7 @@ export default function decorate(block) {
 
   const { connectHits } = instantsearch.connectors;
 
-  const openTab = () => {
+  const openTab = (evt, tabName) => {
     var i, tabcontent, tablinks;
     
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -40,7 +40,7 @@ export default function decorate(block) {
     <div class="tab">
       <button class="tablinks" onclick="${openTab}">ALL RESULTS</button>
       <button class="tablinks" onclick="${openTab(this,"Products")}">PRODUCTS</button>
-      <button class="tablinks" onclick="openTab(event, 'Articles')">ARTICLES</button>
+      <button class="tablinks" onclick="alert(this)">ARTICLES</button>
     </div>
 
 
