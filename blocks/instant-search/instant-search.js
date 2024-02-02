@@ -24,7 +24,9 @@ export default function decorate(block) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     
-    document.getElementById(tabName).style?.display = "block";
+    if (document.getElementById(tabName).hasAttribute("style")) {
+      document.getElementById(tabName).style.display = "block";
+    }
     evt.currentTarget.className += " active";
   };
 
