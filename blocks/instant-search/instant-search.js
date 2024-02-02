@@ -38,8 +38,8 @@ export default function decorate(block) {
     <div id="searchbox" style="width:100%"></div>
 
     <div class="tab">
-      <button class="tablinks" onClick="${openTab}">ALL RESULTS</button>
-      <button class="tablinks" onClick="${openTab(this,"Products")}">PRODUCTS</button>
+      <button class="tablinks" onClick=${openTab}>ALL RESULTS</button>
+      <button class="tablinks" onClick=${openTab(this,"Products")}>PRODUCTS</button>
       <button class="tablinks" onClick="alert(this)">ARTICLES</button>
     </div>
 
