@@ -1,7 +1,7 @@
 import '../../scripts/lib-algoliasearch.js';
 import '../../scripts/lib-instant-search.js';
 
-  const openTab = (evt, tabName) => {
+  /*const openTab = (evt, tabName) => {
     alert("haha");
     let tabcontent = document.getElementsByClassName("tabcontent");
 
@@ -21,12 +21,12 @@ import '../../scripts/lib-instant-search.js';
     
     if (evt != null) {
       evt.currentTarget.className += " active";
-    }*/
-  };
+    }
+  };*/
 
- function openTab2 (){
+ function openTab2(){
     alert("hehe");
-  };
+  }
 
 export default function decorate(block) {
   const { algoliasearch, instantsearch } = window;
