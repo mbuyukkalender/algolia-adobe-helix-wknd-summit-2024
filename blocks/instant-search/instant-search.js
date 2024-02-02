@@ -12,9 +12,10 @@ export default function decorate(block) {
   const { connectHits } = instantsearch.connectors;
 
   const openTab = (evt, tabName) => {
-    let i, tabcontent, tablinks;
-    
+       
     tabcontent = document.getElementsByClassName("tabcontent");
+
+    let i, tabcontent, tablinks;
     for (i = 0; i < tabcontent.length; i++) {
       tabcontent[i].style.display = "none";
     }
@@ -24,13 +25,13 @@ export default function decorate(block) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     
-    /*if (document.getElementById(tabName)!= null) {
+    if (document.getElementById(tabName)!= null) {
       document.getElementById(tabName).style.display = "block";
     }
     
     if (evt != null) {
       evt.currentTarget.className += " active";
-    }*/
+    }
   };
 
 
