@@ -1,16 +1,6 @@
 import '../../scripts/lib-algoliasearch.js';
 import '../../scripts/lib-instant-search.js';
 
-export default function decorate(block) {
-  const { algoliasearch, instantsearch } = window;
-  const {
-    searchBox, stats, hits, configure, panel, refinementList, pagination, rangeSlider
-  } = instantsearch.widgets;
-  const params = new URL(document.location).searchParams;
-  const query = params.get('query');
-
-  const { connectHits } = instantsearch.connectors;
-
   const openTab = (evt, tabName) => {
     alert("haha");
     let tabcontent = document.getElementsByClassName("tabcontent");
@@ -34,16 +24,25 @@ export default function decorate(block) {
     }*/
   };
 
- const openTab2 = async () => {
+ function openTab2 (){
     alert("hehe");
   };
 
+export default function decorate(block) {
+  const { algoliasearch, instantsearch } = window;
+  const {
+    searchBox, stats, hits, configure, panel, refinementList, pagination, rangeSlider
+  } = instantsearch.widgets;
+  const params = new URL(document.location).searchParams;
+  const query = params.get('query');
+
+  const { connectHits } = instantsearch.connectors;
 
   block.innerHTML = `
     <div id="searchbox" style="width:100%"></div>
 
     <div class="tab">
-      <button class="tablinks" onClick=${openTab2}>ALL RESULTS</button>
+      <button class="tablinks" onClick="openTab2()">ALL RESULTS</button>
     </div>
 
 
