@@ -27,7 +27,10 @@ export default function decorate(block) {
     if (document.getElementById(tabName)!= null) {
       document.getElementById(tabName).style.display = "block";
     }
-    evt.currentTarget.className += " active";
+    
+    if (evt != null) {
+      evt.currentTarget.className += " active";
+    }
   };
 
 
