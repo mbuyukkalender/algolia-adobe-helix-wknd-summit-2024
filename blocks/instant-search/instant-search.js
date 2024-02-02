@@ -11,24 +11,6 @@ export default function decorate(block) {
 
   const { connectHits } = instantsearch.connectors;
 
-  const openTab = (evt, tabName) => {
-    var i, tabcontent, tablinks;
-    
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-  };
-
-
   block.innerHTML = `
     <div id="searchbox" style="width:100%"></div>
 
@@ -64,6 +46,23 @@ export default function decorate(block) {
     <div id="Articles" style="display: flex;">
     </div>
   `;
+
+  const openTab = (evt, tabName) => {
+    var i, tabcontent, tablinks;
+    
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  };
 
   fetch('/config/algolia.json')
     .then(async (response) => {
