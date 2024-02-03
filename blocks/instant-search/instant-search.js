@@ -27,7 +27,8 @@ export default function decorate(block) {
             <div style="font-size: 17px; text-transform: uppercase; font-weight: 600; ">Products</div>
             <button>SEE ALL PRODUCTS</button>
           </div>
-          <div id="productsBlockHits" style="display: flex;">
+          <div id="productsBlockHits" style="display: flex; flex-wrap: nowrap; justify-content: space-between;">
+            <div id="hits" style="width: 100%; padding-top: 1rem; display: grid; column-gap: 1rem; row-gap: 1rem; grid-template-columns: repeat(3,minmax(0,1fr));"></div>
           </div>
         </div>
 
