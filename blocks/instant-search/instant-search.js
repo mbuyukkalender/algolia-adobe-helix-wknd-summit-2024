@@ -180,8 +180,8 @@ export default function decorate(block) {
                             <img style="max-width: 100%; height: auto; aspect-ratio: 1 / 1; width: 100%; object-fit: contain;" src="${item.prod_img}" />
                           </div>
                         </div>
-                        <div style="position: relative; display: flex; flex-grow: 1; flex-direction: column;">
-                          <p style="margin-bottom: 0.25rem; font-size: .75rem; line-height: 1rem; font-weight: 600; text-transform: uppercase;">
+                        <div style="position: relative; display: flex; flex-grow: 1; flex-direction: column; margin-bottom: 1rem;">
+                          <p style="margin-bottom: 0.25rem; line-height: 1rem; font-weight: 600; text-transform: uppercase; text-align: center;">
                             ${item.title}
                           </p>
                         </div>
