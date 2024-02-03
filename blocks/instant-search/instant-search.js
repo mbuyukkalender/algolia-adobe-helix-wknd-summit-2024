@@ -202,8 +202,43 @@ export default function decorate(block) {
           }
         `;
       };
+
+      const renderAllProductsHits = (renderOptions, isFirstRender) => {
+      const { hits, widgetParams } = renderOptions;
+        widgetParams.container.innerHTML = `
+            ${hits
+              .map(
+                item =>
+                  `<div id="hit_card" class="transition-all" style="position: relative; display: flex; height: 100%; flex-direction: column; justify-content: space-between; border-width: 1px; border: solid 1px ; border-color: rgb(210 210 210);">
+                    <a href="${item.url}" style="text-decoration: none !important; " >
+                      <div style="position: relative; display: flex; flex-shrink: 0; flex-grow: 1; flex-direction: column; padding: 1rem; padding-bottom:0; ">
+                        <div style="position: relative;">
+                          <div style="margin-left: auto; margin-right: auto; aspect-ratio: 1 / 1; width: 80% padding: 1rem;">
+                            <img style="max-width: 100%; height: auto; aspect-ratio: 1 / 1; width: 100%; object-fit: contain;" src="${item.image_url}" />
+                          </div>
+                        </div>
+                        <div style="position: relative; display: flex; flex-grow: 1; flex-direction: column;">
+                          <p style="margin-bottom: 0.25rem; font-size: .75rem; line-height: 1rem; font-weight: 600; text-transform: uppercase;">
+                            ${item.name}
+                          </p>
+                          <div style="display: flex; flex-grow: 1; align-items: flex-end; justify-content: space-between;">
+                            <p style="margin-bottom: 1rem; font-size: .875rem; line-height: 1.25rem; font-weight: 700; color: #003DFF; ">
+                              <span>
+                                ${item.price.USD.default_formated}
+                              </span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>`
+              )
+            .join('')
+          }
+        `;
+      };
       
-      const customAllProductsHits = connectHits(renderHits);
+      const customAllProductsHits = connectHits(renderAllProductsHits );
       const customHits = connectHits(renderHits);
       const customArticlesHits = connectHits(renderArticles);
 
