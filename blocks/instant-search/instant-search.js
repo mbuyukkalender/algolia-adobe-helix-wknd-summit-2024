@@ -203,7 +203,7 @@ export default function decorate(block) {
         `;
       };
       
-      const customAllProductsHits = connectHits(renderAllProductsHits);
+      const customAllProductsHits = connectHits(renderHits);
       const customHits = connectHits(renderHits);
       const customArticlesHits = connectHits(renderArticles);
 
