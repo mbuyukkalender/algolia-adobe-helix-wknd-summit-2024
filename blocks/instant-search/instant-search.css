@@ -253,6 +253,7 @@ svg:not(:host).svg-inline--fa {
     background-color: #ccc;
 }
 
-/* Style the tab content */
-.tabcontent {
+.tablinks {
+    margin-left: 1rem;
 }
+
