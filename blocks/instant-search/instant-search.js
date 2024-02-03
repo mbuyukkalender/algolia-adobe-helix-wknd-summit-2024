@@ -91,6 +91,8 @@ export default function decorate(block) {
         config.get('searchApiKey'),
       );
 
+      const articlesIndex = config.get('articles_indexName');
+        
       /* =================================== */
       /* InstantSearch Instance for Products */
       /* =================================== */
@@ -178,7 +180,7 @@ export default function decorate(block) {
           },
         }),
         
-        stats({
+        instantsearch.widgets.stats({
           container: '#stats',
           templates: {
             text(data, { html }) {
@@ -199,27 +201,27 @@ export default function decorate(block) {
           },
         }),
 
-        customHits({
+        instantsearch.widgets.customHits({
           container: document.querySelector('#hits'),
         }),
-
-        configure({
+  
+        instantsearch.widgets.configure({
           hitsPerPage: 8,
         }),
         
-        panel({
+        instantsearch.widgets.panel({
           templates: { header: 'category' },
         })(refinementList)({
           container: '#catLvl0Facet',
           attribute: 'categories.level0',
         }),
-        panel({
+        instantsearch.widgets.panel({
           templates: { header: 'color' },
         })(refinementList)({
           container: '#colorFacet',
           attribute: 'color',
         }),
-        panel({
+        instantsearch.widgets.panel({
           templates: { header: 'price' },
         })(rangeSlider)({
           container: '#priceFacet',
@@ -227,9 +229,42 @@ export default function decorate(block) {
           pips: false,
         }),
 
-        pagination({
+        instantsearch.widgets.pagination({
           container: '#pagination',
         }),
+
+        instantsearch.widgets.index({ indexName: articlesIndex }).addWidgets([
+          instantsearch.widgets.configure({
+            hitsPerPage: 8,
+          }),
+          instantsearch.widgets.customHits({
+            container: '#articlesHits',
+          }),
+          instantsearch.widgets.stats({
+            container: '#articlesStats',
+            templates: {
+              text(data, { html }) {
+                let count = '';
+
+                if (data.hasManyResults) {
+                  count += `${data.nbHits}`;
+                } else if (data.hasOneResult) {
+                  count += `1`;
+                } else {
+                  count += `no`;
+                }
+
+                return html`<p style="font-size: .875rem;"><span style="color: #003DFF; font-weight: 600;">${count} </span>
+                <span>results found in</span>
+                <span style="color: #003DFF; font-weight: 600;"> ${data.processingTimeMS}ms</span></p>`;
+              },
+            },
+          }),
+          instantsearch.widgets.pagination({
+            container: '#articlesPagination',
+          }),
+        ]),
+
       ]);
 
       search.start();
