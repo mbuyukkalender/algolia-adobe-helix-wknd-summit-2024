@@ -21,7 +21,7 @@ export default function decorate(block) {
     </div>
 
 
-    <div id="All" class="tabcontent" style="margin-left: 1rem; margin-right: 1rem; margin-top: 1rem; display: block; ">
+    <div id="All" class="tabcontent" style="margin-left: 1rem; margin-right: 1rem; margin-top: 1rem; display: flex; flex-direction: column; ">
         <div id="productsBlock" style="width:100%;">
           <div id="productsBlockHeader" style="display: flex; justify-content: space-between; align-items: center;">
             <div style="font-size: 20px; text-transform: uppercase; font-weight: 600; ">Products</div>
