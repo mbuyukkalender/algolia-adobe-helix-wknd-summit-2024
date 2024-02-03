@@ -262,9 +262,9 @@ export default function decorate(block) {
       });
 
       const renderArticles = (articlesRenderOptions, isFirstRender) => {
-        const { articles, articlesWidgetParams } = articlesRenderOptions;
-        articlesWidgetParams.container.innerHTML = `
-            ${articles
+        const { hits, widgetParams } = renderOptions;
+        widgetParams.container.innerHTML = `
+            ${hits
               .map(
                 item =>
                   `<div id="hit_card" class="transition-all" style="position: relative; display: flex; height: 100%; flex-direction: column; justify-content: space-between; border-width: 1px; border: solid 1px ; border-color: rgb(210 210 210);">
