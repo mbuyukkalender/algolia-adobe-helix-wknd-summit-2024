@@ -262,7 +262,7 @@ export default function decorate(block) {
       });
 
       const renderArticles = (articlesRenderOptions, isFirstRender) => {
-        const { hits, widgetParams } = renderOptions;
+        const { hits, widgetParams } = articlesRenderOptions;
         widgetParams.container.innerHTML = `
             ${hits
               .map(
