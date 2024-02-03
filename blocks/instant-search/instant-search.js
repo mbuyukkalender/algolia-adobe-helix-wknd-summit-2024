@@ -206,7 +206,7 @@ export default function decorate(block) {
       const renderAllProductsHits = (renderOptions, isFirstRender) => {
       const { hits, widgetParams } = renderOptions;
         widgetParams.container.innerHTML = `
-            ${hits
+            ${hits.slice(0, 3)
               .map(
                 item =>
                   `<div id="hit_card" class="transition-all" style="position: relative; display: flex; height: 100%; flex-direction: column; justify-content: space-between; border-width: 1px; border: solid 1px ; border-color: rgb(210 210 210);">
