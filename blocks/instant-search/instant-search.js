@@ -23,9 +23,9 @@ export default function decorate(block) {
 
     <div id="All" class="tabcontent">
         <div id="productsBlock">
-          <div id="productsBlockHeader" style="display: flex;">
-            <div style="font-size: 17px;">Products</div>
-            <button>TEST</button>
+          <div id="productsBlockHeader" style="display: flex; justify-content: space-between;">
+            <div style="font-size: 17px; text-transform: uppercase;">Products</div>
+            <button>SEE ALL PRODUCTS</button>
           </div>
           <div id="productsBlockHits" style="display: flex;">
           </div>
