@@ -21,10 +21,10 @@ export default function decorate(block) {
     </div>
 
 
-    <div id="All" class="tabcontent">
-        <div id="productsBlock">
-          <div id="productsBlockHeader" style="display: flex; justify-content: space-between;">
-            <div style="font-size: 17px; text-transform: uppercase;">Products</div>
+    <div id="All" class="tabcontent" style="margin-left: 1rem; margin-right: 1rem; margin-top: 1rem;">
+        <div id="productsBlock" style="width:100%;">
+          <div id="productsBlockHeader" style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-size: 17px; text-transform: uppercase; font-weight: 600; ">Products</div>
             <button>SEE ALL PRODUCTS</button>
           </div>
           <div id="productsBlockHits" style="display: flex;">
