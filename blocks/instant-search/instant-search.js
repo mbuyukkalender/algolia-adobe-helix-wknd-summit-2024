@@ -98,7 +98,8 @@ export default function decorate(block) {
       event.currentTarget.className += " active";
     });
   }
-  
+
+  document.getElementById("All_Tab").click();
 
   fetch('/config/algolia.json')
     .then(async (response) => {
