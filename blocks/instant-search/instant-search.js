@@ -267,7 +267,7 @@ export default function decorate(block) {
             hitsPerPage: 8,
           }),
           customArticlesHits({
-            container: '#articlesHits',
+            container: document.querySelector('#articlesHits'),
           }),
           instantsearch.widgets.stats({
             container: '#articlesStats',
