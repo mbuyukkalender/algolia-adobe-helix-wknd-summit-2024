@@ -21,11 +21,17 @@ export default function decorate(block) {
     </div>
 
 
-    <div id="All" style="display: flex;" class="tabcontent">
-      <div style="flex-shrink: 0; padding: 1rem; width: 100%; ">
-        <div style="display: flex; justify-content: flex-end; flex-direction: column; ">
-          <div id="hits" style="width: 100%; padding-top: 1rem; display: grid; column-gap: 1rem; row-gap: 1rem; grid-template-columns: repeat(3,minmax(0,1fr));"></div>
-          <div id="articlesHits" style="width: 100%; padding-top: 1rem; display: grid; column-gap: 1rem; row-gap: 1rem; grid-template-columns: repeat(3,minmax(0,1fr));"></div>
+    <div id="All" class="tabcontent">
+        <div id="productsBlock">
+          <div id="productsBlockHeader" style="display: flex;">
+            <div style="font-size: 17px;">Products</div>
+            <button>TEST</button>
+          </div>
+          <div id="productsBlockHits" style="display: flex;">
+          </div>
+        </div>
+
+        <div id="articlesBlock">
         </div>
       </div>
     </div>
