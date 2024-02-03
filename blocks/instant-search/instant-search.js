@@ -168,7 +168,7 @@ export default function decorate(block) {
 
       search.addWidgets([
         
-        searchBox({
+        instantsearch.widgets.searchBox({
           container: '#searchbox',
           placeholder: config.get('placeholder'),
           autofocus: false,
@@ -239,7 +239,7 @@ export default function decorate(block) {
       /* =================================== */
       /* InstantSearch Instance for Articles */
       /* =================================== */
-      const searchArticles = instantsearch({
+      /*const searchArticles = instantsearch({
         indexName: config.get('articles_indexName'),
         searchClient,
         insights: true,
@@ -336,7 +336,7 @@ export default function decorate(block) {
         }),
       ]);
 
-      searchArticles.start();
+      searchArticles.start();*/
 
     });
 }
