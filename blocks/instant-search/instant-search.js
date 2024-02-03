@@ -25,7 +25,7 @@ export default function decorate(block) {
         <div id="productsBlock" style="width:100%;">
           <div id="productsBlockHeader" style="display: flex; justify-content: space-between; align-items: center;">
             <div style="font-size: 20px; text-transform: uppercase; font-weight: 600; ">Products</div>
-            <button>SEE ALL PRODUCTS</button>
+            <button onclick="document.getElementById("Products_Tab").click();">SEE ALL PRODUCTS</button>
           </div>
           <div style="display: flex; flex-wrap: nowrap; justify-content: space-between;">
             <div id="productsBlockHits" style="width: 100%; padding-top: 1rem; display: grid; column-gap: 1rem; row-gap: 1rem; grid-template-columns: repeat(3,minmax(0,1fr));"></div>
@@ -99,6 +99,7 @@ export default function decorate(block) {
     });
   }
 
+  /* Open "All" Tab By default */
   document.getElementById("All_Tab").click();
 
   fetch('/config/algolia.json')
