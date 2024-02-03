@@ -80,7 +80,6 @@ export default function decorate(block) {
   }
   
 
-
   fetch('/config/algolia.json')
     .then(async (response) => {
       const { data } = await response.json();
@@ -93,9 +92,6 @@ export default function decorate(block) {
 
       const articlesIndex = config.get('articles_indexName');
         
-      /* =================================== */
-      /* InstantSearch Instance for Products */
-      /* =================================== */
       const search = instantsearch({
         indexName: config.get('indexName'),
         searchClient,
@@ -297,110 +293,5 @@ export default function decorate(block) {
       ]);
 
       search.start();
-
-
-
-      /* =================================== */
-      /* InstantSearch Instance for Articles */
-      /* =================================== */
-      /*const searchArticles = instantsearch({
-        indexName: config.get('articles_indexName'),
-        searchClient,
-        insights: true,
-        routing: {
-          stateMapping: {
-            stateToRoute(uiState) {
-              return {
-                query: uiState[config.get('articles_indexName')].query,
-              };
-            },
-            routeToState(routeState) {
-              return {
-                [config.get('articles_indexName')]: {
-                  query: routeState.query,
-                },
-              };
-            },
-          },
-        },
-      });
-
-      const renderArticles = (articlesRenderOptions, isFirstRender) => {
-        const { hits, widgetParams } = articlesRenderOptions;
-        widgetParams.container.innerHTML = `
-            ${hits
-              .map(
-                item =>
-                  `<div id="hit_card" class="transition-all" style="position: relative; display: flex; height: 100%; flex-direction: column; justify-content: space-between; border-width: 1px; border: solid 1px ; border-color: rgb(210 210 210);">
-                    <a href="${item.prod_url}" style="text-decoration: none !important; " >
-                      <div style="position: relative; display: flex; flex-shrink: 0; flex-grow: 1; flex-direction: column; padding: 1rem; padding-bottom:0; ">
-                        <div style="position: relative;">
-                          <div style="margin-left: auto; margin-right: auto; aspect-ratio: 1 / 1; width: 80% padding: 1rem;">
-                            <img style="max-width: 100%; height: auto; aspect-ratio: 1 / 1; width: 100%; object-fit: contain;" src="${item.prod_img}" />
-                          </div>
-                        </div>
-                        <div style="position: relative; display: flex; flex-grow: 1; flex-direction: column;">
-                          <p style="margin-bottom: 0.25rem; font-size: .75rem; line-height: 1rem; font-weight: 600; text-transform: uppercase;">
-                            ${item.title}
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>`
-              )
-            .join('')
-          }
-        `;
-      };
-      const customArticlesHits = connectHits(renderArticles);
-
-      searchArticles.addWidgets([
-        
-        searchBox({
-          container: '#searchbox',
-          placeholder: config.get('placeholder'),
-          autofocus: false,
-          searchAsYouType: true,
-          searchParameters: {
-            query,
-          },
-        }),
-        
-        stats({
-          container: '#articlesStats',
-          templates: {
-            text(data, { html }) {
-              let count = '';
-
-              if (data.hasManyResults) {
-                count += `${data.nbHits}`;
-              } else if (data.hasOneResult) {
-                count += `1`;
-              } else {
-                count += `no`;
-              }
-
-              return html`<p style="font-size: .875rem;"><span style="color: #003DFF; font-weight: 600;">${count} </span>
-              <span>results found in</span>
-              <span style="color: #003DFF; font-weight: 600;"> ${data.processingTimeMS}ms</span></p>`;
-            },
-          },
-        }),
-
-        customArticlesHits({
-          container: document.querySelector('#articlesHits'),
-        }),
-
-        configure({
-          hitsPerPage: 8,
-        }),
-    
-        pagination({
-          container: '#articlesPagination',
-        }),
-      ]);
-
-      searchArticles.start();*/
-
     });
 }
