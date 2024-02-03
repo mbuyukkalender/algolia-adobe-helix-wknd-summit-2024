@@ -201,7 +201,7 @@ export default function decorate(block) {
           },
         }),
 
-        instantsearch.widgets.customHits({
+        customHits({
           container: document.querySelector('#hits'),
         }),
   
