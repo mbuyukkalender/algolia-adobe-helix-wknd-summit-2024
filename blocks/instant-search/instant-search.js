@@ -237,7 +237,7 @@ export default function decorate(block) {
           instantsearch.widgets.configure({
             hitsPerPage: 8,
           }),
-          instantsearch.widgets.customHits({
+          customHits({
             container: '#articlesHits',
           }),
           instantsearch.widgets.stats({
