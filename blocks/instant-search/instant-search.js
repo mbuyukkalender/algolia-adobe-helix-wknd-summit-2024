@@ -47,11 +47,11 @@ export default function decorate(block) {
       <div style="flex-shrink: 0; padding: 1rem; width: 100%; ">
         <div style="display: flex; justify-content: flex-end; flex-direction: column; ">
           <div style="width: 100%; display: flex; justify-content: flex-end; border-top: solid 1px; border-color: rgb(210 210 210);">
-            <div id="stats"></div>
-            <div id="sorting"></div>
+            <div id="articlesStats"></div>
+            <div id="articlesSorting"></div>
           </div>
-          <div id="hits" style="width: 100%; padding-top: 1rem; display: grid; column-gap: 1rem; row-gap: 1rem; grid-template-columns: repeat(3,minmax(0,1fr));"></div>
-          <div id="pagination" style="width: 100%;"></div>
+          <div id="articlesHits" style="width: 100%; padding-top: 1rem; display: grid; column-gap: 1rem; row-gap: 1rem; grid-template-columns: repeat(3,minmax(0,1fr));"></div>
+          <div id="articlesPagination" style="width: 100%;"></div>
         </div>
       </div>
     </div>
@@ -262,7 +262,7 @@ export default function decorate(block) {
       });
 
       const renderArticles = (articlesRenderOptions, isFirstRender) => {
-      const { articles, articlesWidgetParams } = articlesRenderOptions;
+        const { articles, articlesWidgetParams } = articlesRenderOptions;
         articlesWidgetParams.container.innerHTML = `
             ${articles
               .map(
@@ -303,7 +303,7 @@ export default function decorate(block) {
         }),
         
         stats({
-          container: '#stats',
+          container: '#articlesStats',
           templates: {
             text(data, { html }) {
               let count = '';
@@ -324,7 +324,7 @@ export default function decorate(block) {
         }),
 
         customArticlesHits({
-          container: document.querySelector('#hits'),
+          container: document.querySelector('#articlesHits'),
         }),
 
         configure({
@@ -332,7 +332,7 @@ export default function decorate(block) {
         }),
     
         pagination({
-          container: '#pagination',
+          container: '#articlesPagination',
         }),
       ]);
 
