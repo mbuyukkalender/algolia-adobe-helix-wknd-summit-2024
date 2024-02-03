@@ -32,7 +32,14 @@ export default function decorate(block) {
           </div>
         </div>
 
-        <div id="articlesBlock">
+        <div id="articlesBlock" style="width:100%;">
+          <div id="articlesBlockHeader" style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-size: 17px; text-transform: uppercase; font-weight: 600; ">Articles</div>
+            <button>SEE ALL ARTICLES</button>
+          </div>
+          <div style="display: flex; flex-wrap: nowrap; justify-content: space-between;">
+            <div id="artilesBlockHits" style="width: 100%; padding-top: 1rem; display: grid; column-gap: 1rem; row-gap: 1rem; grid-template-columns: repeat(3,minmax(0,1fr));"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -202,7 +209,6 @@ export default function decorate(block) {
           }
         `;
       };
-
       const renderAllProductsHits = (renderOptions, isFirstRender) => {
       const { hits, widgetParams } = renderOptions;
         widgetParams.container.innerHTML = `
@@ -237,8 +243,36 @@ export default function decorate(block) {
           }
         `;
       };
+      const renderAllArticlesHits = (articlesRenderOptions, isFirstRender) => {
+        const { hits, widgetParams } = articlesRenderOptions;
+        widgetParams.container.innerHTML = `
+            ${hits
+              .map(
+                item =>
+                  `<div id="hit_card" class="transition-all" style="position: relative; display: flex; height: 100%; flex-direction: column; justify-content: space-between; border-width: 1px; border: solid 1px ; border-color: rgb(210 210 210);">
+                    <a href="${item.prod_url}" style="text-decoration: none !important; " >
+                      <div style="position: relative; display: flex; flex-shrink: 0; flex-grow: 1; flex-direction: column; padding: 1rem; padding-bottom:0; ">
+                        <div style="position: relative;">
+                          <div style="margin-left: auto; margin-right: auto; aspect-ratio: 1 / 1; width: 80% padding: 1rem;">
+                            <img style="max-width: 100%; height: auto; aspect-ratio: 1 / 1; width: 100%; object-fit: contain;" src="${item.prod_img}" />
+                          </div>
+                        </div>
+                        <div style="position: relative; display: flex; flex-grow: 1; flex-direction: column; margin-bottom: 1rem;">
+                          <p style="margin-bottom: 0.25rem; line-height: 1rem; font-weight: 600; text-transform: uppercase; text-align: center;">
+                            ${item.title}
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>`
+              )
+            .join('')
+          }
+        `;
+      };
       
       const customAllProductsHits = connectHits(renderAllProductsHits );
+      const customAllArticlesHits = connectHits(renderAllArticlesHits );
       const customHits = connectHits(renderHits);
       const customArticlesHits = connectHits(renderArticles);
 
@@ -318,6 +352,10 @@ export default function decorate(block) {
           customArticlesHits({
             container: document.querySelector('#articlesHits'),
           }),
+          customAllArticlesHits({
+            container: document.querySelector('#artilesBlockHits'),
+          }),
+
           instantsearch.widgets.stats({
             container: '#articlesStats',
             templates: {
