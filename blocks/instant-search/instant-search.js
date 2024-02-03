@@ -21,7 +21,7 @@ export default function decorate(block) {
     </div>
 
 
-    <div id="All" class="tabcontent" style="margin-left: 1rem; margin-right: 1rem; margin-top: 1rem;">
+    <div id="All" class="tabcontent" style="margin-left: 1rem; margin-right: 1rem; margin-top: 1rem; display: block !important; ">
         <div id="productsBlock" style="width:100%;">
           <div id="productsBlockHeader" style="display: flex; justify-content: space-between; align-items: center;">
             <div style="font-size: 17px; text-transform: uppercase; font-weight: 600; ">Products</div>
@@ -32,7 +32,7 @@ export default function decorate(block) {
           </div>
         </div>
 
-        <div id="articlesBlock" style="width:100%;">
+        <div id="articlesBlock" style="width:100%; margin-top: 2rem;">
           <div id="articlesBlockHeader" style="display: flex; justify-content: space-between; align-items: center;">
             <div style="font-size: 17px; text-transform: uppercase; font-weight: 600; ">Articles</div>
             <button>SEE ALL ARTICLES</button>
@@ -246,7 +246,7 @@ export default function decorate(block) {
       const renderAllArticlesHits = (articlesRenderOptions, isFirstRender) => {
         const { hits, widgetParams } = articlesRenderOptions;
         widgetParams.container.innerHTML = `
-            ${hits
+            ${hits.slice(0, 3)
               .map(
                 item =>
                   `<div id="hit_card" class="transition-all" style="position: relative; display: flex; height: 100%; flex-direction: column; justify-content: space-between; border-width: 1px; border: solid 1px ; border-color: rgb(210 210 210);">
