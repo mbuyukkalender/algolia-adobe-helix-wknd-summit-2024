@@ -35,7 +35,7 @@ export default function decorate(block) {
         <div id="articlesBlock" style="width:100%; margin-top: 2rem;">
           <div id="articlesBlockHeader" style="display: flex; justify-content: space-between; align-items: center;">
             <div style="font-size: 20px; text-transform: uppercase; font-weight: 600; ">Articles</div>
-            <button id="seeAllarticlesButton">SEE ALL ARTICLES</button>
+            <button id="seeAllArticlesButton">SEE ALL ARTICLES</button>
           </div>
           <div style="display: flex; flex-wrap: nowrap; justify-content: space-between;">
             <div id="artilesBlockHits" style="width: 100%; padding-top: 1rem; display: grid; column-gap: 1rem; row-gap: 1rem; grid-template-columns: repeat(3,minmax(0,1fr));"></div>
@@ -77,6 +77,7 @@ export default function decorate(block) {
     </div>
   `;
 
+  /* =============== ADDING CLICK LISTENERS ===============  */
 
   const buttons = document.getElementsByClassName("tablinks");
   for (var i = 0; i < buttons.length; i++) {
@@ -102,6 +103,13 @@ export default function decorate(block) {
   document.getElementById("seeAllProductsButton").addEventListener('click', (event) => {
     document.getElementById("Products_Tab").click();  
   });
+
+  document.getElementById("seeAllArticlesButton").addEventListener('click', (event) => {
+    document.getElementById("Articles_Tab").click();  
+  });
+
+  /* =============== END ADDING CLICK LISTENERS ===============  */
+
 
   /* Open "All" Tab By default */
   document.getElementById("All_Tab").click();
